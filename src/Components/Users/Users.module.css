@@ -1,0 +1,73 @@
+.UserContent{
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  height: 150px;
+}
+
+.face{
+  grid-column: 1;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.avatar{
+  justify-self: center;  
+}
+
+.follow{
+  justify-self: center;  
+}
+
+.info{
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 30px;
+  border: solid 1px grey;
+  border-radius: 15px;
+  height: 120px;
+  align-items: center;
+}
+
+.name{
+
+}
+.surname{
+
+}
+.status{
+
+}
+.location{
+  justify-self: end;
+
+}
+.city{
+
+}
+.country{
+
+}
+
+.more{
+  display: grid;
+  justify-items: center;
+}
+
+.pages{
+  text-align: center;
+  padding: 0 0 20px 0;
+}
+
+.pages span{
+  padding: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+.pages .selectedPage{
+  font-weight: 700;
+}
+
+.UsersContent{
+  height: 100%;
+}

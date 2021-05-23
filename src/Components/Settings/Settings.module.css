@@ -1,0 +1,21 @@
+.settings {
+  display: grid;
+  grid-row: 1fr 1fr;
+  height: 100%;
+}
+.settingItem {
+  align-self: center;
+  justify-self: center;
+}
+
+.settingvalue {
+  text-align: center;
+  align-self: center;
+  font-size: 50px;
+}
+
+.settingItem button {
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+}

@@ -1,0 +1,14 @@
+.descriptionBlock {
+}
+
+.descriptionBlock h4 {
+  margin: 5px 0;
+}
+
+.descriptionBlock h4::first-letter {
+  text-transform: uppercase;
+}
+
+.avatarBlock img{
+  border-radius: 50%;
+}

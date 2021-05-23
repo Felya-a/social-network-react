@@ -1,0 +1,45 @@
+.content{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.dialogsItems{
+    display: grid;
+    /* align-items: center; */
+}
+
+.dialog{
+    color: #000;
+    /* height: 100%; */
+    text-decoration: none;
+    align-self: center;
+    /* outline: solid 1px; */
+}
+.dialog.active{
+    font-weight: 700;
+}
+
+.MessagesItems{
+    display: grid;
+    align-content: space-between;
+    justify-items: center;
+}
+
+.MessagesElemenst{
+    display: grid;
+    justify-items: start;
+
+}
+.MessageInput{
+    align-self: end;
+    display: grid;
+    justify-items: center;
+}
+.submit{
+    margin: 15px 0 0 0;
+}
+
+.Message{
+    border-bottom: solid 1px;
+}

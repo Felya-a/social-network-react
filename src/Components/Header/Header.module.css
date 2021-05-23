@@ -1,0 +1,36 @@
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template: 1fr / 20% 1fr 20%;
+    justify-items: center;
+    align-items: center;
+    /* align-content: center; */
+    /* align-self: center; */
+
+    background-color: green;
+    width: 100%;
+}
+
+.info {
+}
+
+.logo {
+    display: grid;
+    /* align-self: center; */
+}
+
+.header img {
+    width: 100px;
+    height: auto;
+}
+
+.loginBlock {
+    align-content: center;
+}
+
+.loginBlock_Item {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+
+}
