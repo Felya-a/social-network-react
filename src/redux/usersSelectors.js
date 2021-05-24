@@ -8,22 +8,22 @@ export const getUsers = createSelector(getUsersPrimitiveSelector, (users) => {
   return users;
 })
 
-export const getPageSizePrimitiveSelector = (state) => {
+export const getPageSize = (state) => {
   return state.usersPage.pageSize;
 }
 
-export const getTotalUsersCountPrimitiveSelector = (state) => {
+export const getTotalUsersCount = (state) => {
   return state.usersPage.totalUsersCount;
 }
 
-export const getCurrentPagePrimitiveSelector = (state) => {
+export const getCurrentPage = (state) => {
   return state.usersPage.currentPage;
 }
 
-export const getFetchingPrimitiveSelector = (state) => {
+export const getFetching = (state) => {
   return state.usersPage.isFetching;
 }
 
-export const getFollowingIsProgressPrimitiveSelector= (state) => {
+export const getFollowingIsProgress= (state) => {
   return state.usersPage.followingIsProgress;
 }
