@@ -9,6 +9,7 @@ let initialState = {
 }
 
 const footerReducer = (state = initialState, action) => {
+	console.log('footer REDUCER');
 	switch (action.type) {
 		case SET_TIME:
 			return {

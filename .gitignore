@@ -23,6 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 ~$ucation.docx
+*~*
 ~WRL0003.tmp
-
-*~*.docx

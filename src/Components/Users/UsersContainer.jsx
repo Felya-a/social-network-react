@@ -4,6 +4,8 @@ import { follow, unfollow, chengeCurrentPage, toggleFollowingProgress, getUsersT
 import Users from "./Users";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
+// import { getCurrentPage, getFollowingIsProgress, getPageSize, getTotalUsersCount, getUsers, getFetching } from "../../redux/usersSelectors";
+import * as Selectors from "../../redux/usersSelectors";
 
 // Классовая компонента (как понял это предок Хуков)
 class UsersAPIContainer extends React.Component {
@@ -42,12 +44,12 @@ class UsersAPIContainer extends React.Component {
 // компонента перересовывается только если что то меняется в этих свойствах state
 let mapStateToProps = (state) => {
   return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching,
-    followingIsProgress: state.usersPage.followingIsProgress,
+    users: Selectors.getUsers(state),
+    pageSize: Selectors.getPageSize(state),
+    totalUsersCount: Selectors.getTotalUsersCount(state),
+    currentPage: Selectors.getCurrentPage(state),
+    isFetching: Selectors.getFetching(state),
+    followingIsProgress: Selectors.getFollowingIsProgress(state),
   }
 }
 
