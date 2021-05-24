@@ -21,8 +21,9 @@ export const setStatusThunkCreator = (status) => (dispatch) => {
 }
 export const getStatusThunkCreator = (userID) => (dispatch) => {
 	getStatus(userID).then(response => {
-		console.log("getStatusThunkCreator - " + response.data);
-		if (response.status == 200) dispatch(setStatus(response.data));
+		if (response.status == 200) {
+			dispatch(setStatus(response.data));
+		}
 	})
 }
 
@@ -57,13 +58,6 @@ const profileReducer = (state = initialState, action) => {
 				...state,
 				posts: [...state.posts, newPost],
 			};
-		// case UPDATE_NEW_POST_TEXT:
-		// 	{ // блок кода start
-		// 		return {
-		// 			...state,
-		// 			newPostText: action.newText,
-		// 		};
-		// 	} // блок кода end
 		case SETTINGS_CHANGE_SCORE:
 			return {
 				...state,
@@ -82,7 +76,6 @@ const profileReducer = (state = initialState, action) => {
 		default:
 			return state;
 	}
-
 }
 
 export default profileReducer
