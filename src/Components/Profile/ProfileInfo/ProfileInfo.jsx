@@ -7,7 +7,7 @@ import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 let ProfileInfo = (props) => {
     return (
         <div>
-            {(props.profile && props.status) ?
+            {(props.profile) ?
                 <div>
                     <div className={classes.avatarBlock}>
                         <img src={props.profile.photos.large || UserPhotoSmall} alt="" />

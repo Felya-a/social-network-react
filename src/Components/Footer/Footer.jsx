@@ -13,7 +13,7 @@ class Footer extends React.Component {
             let hours = this.TotalTime(String(time.getHours()));
             let minutes = this.TotalTime(String(time.getMinutes()));
             let sec = this.TotalTime(String(time.getSeconds()));
-            this.setState({time: `${hours}:${minutes}:${sec}`})
+            this.setState({ time: `${hours}:${minutes}:${sec}` })
         }
             , 1000);
     }
