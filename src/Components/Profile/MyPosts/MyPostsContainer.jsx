@@ -4,7 +4,7 @@ import MyPosts from './MyPosts';
 
 const mapStateToProps = (state) => {
   return{
-    profilePage: state.profilePage, // MyPosts перересуется только тогда, когда изменится это свойство
+    posts: state.profilePage.posts, // MyPosts перересуется только тогда, когда изменится это свойство
   }
 }
 
