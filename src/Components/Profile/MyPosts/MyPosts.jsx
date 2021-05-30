@@ -51,7 +51,6 @@ const MyPosts = React.memo((props) => { // неработает из-за сил
 	const onSubmit = (formData) => {
 		props.addPost(formData.postText);
 	}
-	console.log('RENDER MYPOSTS');
 	return (
 		<div>
 			<div className={classes.postsHeader} >My posts</div>

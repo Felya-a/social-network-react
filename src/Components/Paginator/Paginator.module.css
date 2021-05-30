@@ -1,0 +1,69 @@
+.pages {
+  text-align: center;
+  display: grid;
+  width: 100%;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+  align-items: center;
+  justify-items: center;
+}
+
+.pages span {
+  cursor: pointer;
+  border-radius: 50%;
+  /* width: 20px;
+  height: 20px; */
+  /* box-shadow: 0px 1px 1px 0px rgb(177 177 177); */
+}
+
+.pages .selectedPage {
+  font-weight: 700;
+}
+
+.buttonArrow, .buttonPagination {
+  justify-self: center;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: grid;
+  align-items: center;
+}
+.circle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  margin: 0 0 20px;
+}
+
+.content{
+  width: 500px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 10% 12% 1fr 12% 10%;
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+.content div:first-child {
+  justify-self: start;
+}
+
+.content div:last-child {
+  justify-self: end;
+}

@@ -42,7 +42,6 @@ export const updateStatus = (status) => {
 }
 
 export const logining = (email, password, rememberMe = false) => {
-  console.log(typeof email);
   return instance.post('/auth/login', {
     email,
     password,

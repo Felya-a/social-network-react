@@ -1,6 +1,4 @@
 import React from 'react';
-import classes from './Login.module.css';
-import { NavLink, Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import { Input } from '../common/FormsControls/FormsControls';
 import { required } from '../../utils/validators/validators';
@@ -34,9 +32,10 @@ const LoginForm = (props) => {
           component={Input}
           name='rememberMe' /> remember me
       </div>
-      {props.error && <div className={styles.formSummatyError}>
-        {props.error}
-      </div>
+      {props.error &&
+        <div className={styles.formSummatyError}>
+          {props.error}
+        </div>
       }
       <button>Sign up</button>
       <button onClick={props.reset} type='button'>Reset</button>
@@ -50,11 +49,9 @@ const LoginReduxForm = reduxForm({
 
 let Login = (props) => {
   const onSubmit = (formData) => {
-    console.log(formData);
     props.loginThunkCreator(formData);
   }
   const logout = () => {
-    console.log('logout');
     props.logoutProfile();
   }
 

@@ -8,28 +8,24 @@ const LOGOUT_USER = "LOGOUT_USER";
 // Action Creator
 export const setAuthUserData = (id, email, login) => ({ type: SET_USER_DATA, data: { id, email, login } })
 export const logoutUser = () => ({ type: LOGOUT_USER })
-export const authMeThunkCreator = () => (dispatch) => {
-	return authMe().then(response => {
-		let { login, id, email } = response.data.data;
-		if (!response.data.resultCode) dispatch(setAuthUserData(id, email, login));
-	})
+export const authMeThunkCreator = () => async (dispatch) => {
+	let response = await authMe();
+	let { login, id, email } = response.data.data;
+	if (!response.data.resultCode) dispatch(setAuthUserData(id, email, login));
 }
 
-export const loginThunkCreator = ({ email, password, rememberMe }) => (dispatch) => {
-	logining(email, password, rememberMe).then(response => {
-		console.log(response);
-		if (!response.data.resultCode) dispatch(authMeThunkCreator());
-		else {
-			let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error';
-			dispatch(stopSubmit('login', { _error: errorMessage }));
-		}
-	})
+export const loginThunkCreator = ({ email, password, rememberMe }) => async (dispatch) => {
+	let response = await logining(email, password, rememberMe)
+	if (!response.data.resultCode) dispatch(authMeThunkCreator());
+	else {
+		let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error';
+		dispatch(stopSubmit('login', { _error: errorMessage }));
+	}
 }
 
-export const logoutProfile = () => (dispatch) => {
-	logout().then(response => {
-		if (!response.data.resultCode) dispatch(logoutUser());
-	});
+export const logoutProfile = () => async (dispatch) => {
+	let response = await logout()
+	if (!response.data.resultCode) dispatch(logoutUser());
 }
 
 let initialState = {

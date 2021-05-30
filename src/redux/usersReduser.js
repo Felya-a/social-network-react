@@ -18,43 +18,34 @@ export const setTotalUsersCount = (totalCount) => ({ type: SET_TOTAL_USERS_COUNT
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
 export const toggleFollowingProgress = (isFetching, userID) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userID })
 
-export const getUsersThunkCreator = (currentPage, pageSize) => { // замыкание, ф-я высшего порядка
-
-	return (dispatch) => {
-		dispatch(chengeCurrentPage(currentPage))
-		dispatch(toggleIsFetching(true));
-		getUsers(currentPage, pageSize).then(data => {
-			dispatch(toggleIsFetching(false));
-			dispatch(setUsers(data.items));
-			dispatch(setTotalUsersCount(data.totalCount));
-		})
-	}
+export const getUsersThunkCreator = (currentPage, pageSize) => async (dispatch) => { // замыкание, ф-я высшего порядка 
+	dispatch(chengeCurrentPage(currentPage))
+	dispatch(toggleIsFetching(true));
+	let data = await getUsers(currentPage, pageSize)
+	dispatch(toggleIsFetching(false));
+	dispatch(setUsers(data.items));
+	dispatch(setTotalUsersCount(data.totalCount));
 }
 
-export const followThunkCreator = (userID) => (dispatch) => { // замыкание, ф-я высшего порядка
+export const followThunkCreator = (userID) => async (dispatch) => { // замыкание, ф-я высшего порядка
+	chengeFollow(dispatch, userID, followPost, follow);
+}
+
+export const unfollowThunkCreator = (userID) => async (dispatch) => { // замыкание, ф-я высшего порядка
+	chengeFollow(dispatch, userID, followDelete, unfollow);
+}
+
+// убрали дублирование кода вынеся общую логику в отдельную функцию
+async function chengeFollow(dispatch, userID, apiMethod, actionCreator) {
 	dispatch(toggleFollowingProgress(true, userID));
-	followPost(userID).then(response => {
-		if (response.data.resultCode == 0){
-			dispatch(follow(userID))
-		}
-		dispatch(toggleFollowingProgress(false, userID));
-	})
+	let response = await apiMethod(userID);
+	if (response.data.resultCode == 0) dispatch(actionCreator(userID));
+	dispatch(toggleFollowingProgress(false, userID));
 }
-
-export const unfollowThunkCreator = (userID) => (dispatch) => { // замыкание, ф-я высшего порядка
-	dispatch(toggleFollowingProgress(true, userID));
-	followDelete(userID).then(response => {
-		if (response.data.resultCode == 0){
-			dispatch(unfollow(userID))
-		}
-		dispatch(toggleFollowingProgress(false, userID));
-	})
-}
-
 
 let initialState = {
 	users: [],
-	pageSize: 5,
+	pageSize: 10,
 	totalUsersCount: 24,
 	currentPage: 1,
 	isFetching: false,
@@ -62,7 +53,6 @@ let initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
-	window.state = state;
 	switch (action.type) {
 		case FOLLOW:
 			return {
@@ -88,7 +78,7 @@ const usersReducer = (state = initialState, action) => {
 		case SET_TOTAL_USERS_COUNT:
 			return {
 				...state,
-				// totalUsersCount: action.totalCount,
+				totalUsersCount: action.totalCount,
 			}
 		case TOGGLE_IS_FETCHING:
 			return {
@@ -104,9 +94,7 @@ const usersReducer = (state = initialState, action) => {
 			}
 		default:
 			return state;
-
 	}
-
 }
 
 export default usersReducer

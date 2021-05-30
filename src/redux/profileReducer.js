@@ -14,23 +14,20 @@ export const SettingsChangeScore = () => ({ type: SETTINGS_CHANGE_SCORE, })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 
-export const setStatusThunkCreator = (status) => (dispatch) => {
-	updateStatus(status).then(response => {
-		if (response.data.resultCode == 0) dispatch(setStatus(status));
-	})
+export const setStatusThunkCreator = (status) => async (dispatch) => {
+	let response = await updateStatus(status)
+	if (response.data.resultCode == 0) dispatch(setStatus(status));
 }
-export const getStatusThunkCreator = (userID) => (dispatch) => {
-	getStatus(userID).then(response => {
-		if (response.status == 200) {
-			dispatch(setStatus(response.data));
-		}
-	})
+export const getStatusThunkCreator = (userID) => async (dispatch) => {
+	let response = await getStatus(userID)
+	if (response.status == 200) {
+		dispatch(setStatus(response.data));
+	}
 }
 
-export const getUserProfileThunkCreator = (userID) => (dispatch) => {
-	getProfile(userID).then(response => {
-		dispatch(setUserProfile(response.data));
-	})
+export const getUserProfileThunkCreator = (userID) => async (dispatch) => {
+	let response = await getProfile(userID)
+	dispatch(setUserProfile(response.data));
 }
 
 let initialState = {
