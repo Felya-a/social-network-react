@@ -17,24 +17,25 @@ function Paginator({ totalUsersCount, pageSize, currentPage, chengeCurrentPage, 
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
-        <div className={styles.circle}>
-          <button className={styles.buttonArrow} onClick={() => setPortionNumber(1)}>{"<<"}</button>
+        <div className={styles.circle} onClick={() => setPortionNumber(1)}>
+          <button className={styles.buttonArrow} >{"<<"}</button>
         </div>
-        <div className={styles.circle}>
+        <div className={styles.circle} onClick={() => setPortionNumber(portionNumber - 1)}>
           <button
             className={styles.buttonPagination + ' ' + styles.right}
-            onClick={() => setPortionNumber(portionNumber - 1)}
             disabled={portionNumber == 1}
           >Prev</button>
         </div>
         <div className={styles.pages}>
           {
-            pages.filter(page => page >= portionLeftBorder && page <= portionRightBorder)
+            pages.filter(page => page > portionLeftBorder && page <= portionRightBorder)
               .map(page => {
                 return (
-                  <div className={styles.circle}>
+                  <div
+                    className={styles.circle}
+                    onClick={() => chengeCurrentPage(page)}
+                  >
                     <span
-                      onClick={() => chengeCurrentPage(page)}
                       className={currentPage === page && styles.selectedPage}>
                       {page}
                     </span>
@@ -43,15 +44,14 @@ function Paginator({ totalUsersCount, pageSize, currentPage, chengeCurrentPage, 
               })
           }
         </div>
-        <div className={styles.circle}>
+        <div className={styles.circle} onClick={() => setPortionNumber(portionNumber + 1)}>
           <button
             className={styles.buttonPagination + ' ' + styles.left}
-            onClick={() => setPortionNumber(portionNumber + 1)}
             disabled={portionNumber == portionCount}
           >Next</button>
         </div>
-        <div className={styles.circle}>
-          <button className={styles.buttonArrow} onClick={() => setPortionNumber(portionCount)}>{">>"}</button>
+        <div className={styles.circle} onClick={() => setPortionNumber(portionCount)}>
+          <button className={styles.buttonArrow} >{">>"}</button>
         </div>
       </div>
     </div>

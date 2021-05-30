@@ -2,7 +2,7 @@ import classes from './Music.module.css';
 
 const Music = (props) => {
     return (
-        <div className={classes.dialogs}>
+        <div className={classes.content}>
             Music
         </div>
     )

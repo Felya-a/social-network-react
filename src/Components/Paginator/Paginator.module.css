@@ -11,24 +11,22 @@
 .pages span {
   cursor: pointer;
   border-radius: 50%;
-  /* width: 20px;
-  height: 20px; */
-  /* box-shadow: 0px 1px 1px 0px rgb(177 177 177); */
 }
 
 .pages .selectedPage {
   font-weight: 700;
 }
 
-.buttonArrow, .buttonPagination {
+.buttonArrow,
+.buttonPagination {
   justify-self: center;
-  font-size: 16px;
+  font-size: 15px;
   border: none;
   cursor: pointer;
   padding: 0;
   border: none;
-  font: inherit;
-  color: inherit;
+  /* font: inherit;
+  color: inherit; */
   background-color: transparent;
 }
 
@@ -38,9 +36,11 @@
   width: 50px;
   display: grid;
   align-items: center;
+  cursor: pointer;
 }
+
 .circle:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #e1e1e1;
 }
 
 .wrapper {
@@ -50,20 +50,24 @@
   margin: 0 0 20px;
 }
 
-.content{
+.content {
   width: 500px;
   display: grid;
-  align-items: center;
+  /* align-items: center; */
   justify-items: center;
   grid-template-columns: 10% 12% 1fr 12% 10%;
   background-color: #fff;
   border-radius: 30px;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
 }
 
-.content div:first-child {
+.content>div:first-child {
   justify-self: start;
 }
 
-.content div:last-child {
+.content>div:last-child {
   justify-self: end;
 }
