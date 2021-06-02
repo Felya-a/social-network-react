@@ -1,4 +1,4 @@
-import * as axios from 'axios';
+import * as axios from "axios";
 
 const instance = axios.create({
   withCredentials: true,
@@ -41,16 +41,34 @@ export const updateStatus = (status) => {
   })
 }
 
-export const logining = (email, password, rememberMe = false) => {
-  return instance.post('/auth/login', {
+export const logining = (email, password, rememberMe = false, captchaText = null) => {
+  return instance.post("/auth/login", {
     email,
     password,
     rememberMe,
+    captcha: captchaText,
   })
 }
 
 export const logout = () => {
-  return instance.delete('auth/login')
+  return instance.delete("auth/login")
+}
+
+export const savePhoto = (photoFile) => {
+  let formData = new FormData();
+  formData.append("image", photoFile)
+  return instance.put("/profile/photo", formData, {
+    "Content-Type": "multipart/form-data",
+  })
+}
+
+export const setMeDataProfile = (data) => {
+  console.log(data);
+  return instance.put("/profile", data)
+}
+
+export const getCaptcha = () => {
+  return instance.get("/security/get-captcha-url")
 }
 
 // Рабочий запрос

@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, withRouter } from 'react-router-dom';
 import NavBar from './Components/NavBar/NavBar.jsx';
 import FooterContainer from './Components/Footer/Footer.jsx';
 import News from './Components/News/News.jsx';
@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     if (!this.props.initialized) return <Preloader />
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="wrapper">
           <div className='app-wrapper'>
             <HeaderContainer />
@@ -44,7 +44,7 @@ class App extends React.Component {
             <FooterContainer />
           </div>
         </div>
-      </BrowserRouter >
+      </HashRouter >
     )
   }
 }

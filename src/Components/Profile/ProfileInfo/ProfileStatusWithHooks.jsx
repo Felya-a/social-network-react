@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./ProfileInfo.module.css"
 
 const ProfileStatusWithHooks = (props) => {
   // props - setStatusThunkCreator, status
@@ -36,7 +37,7 @@ const ProfileStatusWithHooks = (props) => {
   }
 
   return (
-    <div>
+    <div className={styles.status}>
       {editMode
         ?
         <div>
@@ -48,11 +49,9 @@ const ProfileStatusWithHooks = (props) => {
             value={status}
           />
         </div>
-        :
-        <div>
-          {/* <span disabled={true} onDoubleClick={this.chengeEditMode}>{this.props.status || "-------"}</span> */}
-          <span disabled={true} onClick={() => { console.log(status); }} onDoubleClick={chengeEditMode}>{props.status || "-------"}</span>
-        </div>
+        : props.isOwner ?
+          <span disabled={true} onDoubleClick={chengeEditMode}>{props.status || "-------"}</span>
+          : <span disabled={true} >{props.status || "-------"}</span>
       }
     </div>
   )

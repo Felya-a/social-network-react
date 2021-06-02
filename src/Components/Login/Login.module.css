@@ -1,0 +1,25 @@
+.error__captcha {
+  display: grid;
+}
+
+.error__captcha div {
+  justify-self: center;
+}
+
+.error__captcha input {
+  text-align: center;
+  justify-self: center;
+  margin: 10px;
+}
+
+.error__captcha img {
+  width: 150px;
+  display: block;
+  justify-self: center;
+  margin: 15px;
+}
+
+.formLogin button {
+  margin: 15px 10px 10px 0;
+  font-size: 15px;
+}

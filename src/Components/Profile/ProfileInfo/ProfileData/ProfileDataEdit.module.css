@@ -1,0 +1,25 @@
+.profileForm {
+  display: grid;
+  grid-template-columns: 25% 30% 1fr;
+}
+
+.profileForm button {
+  width: 100px;
+  justify-self: center;
+  font-size: 16px;
+}
+
+.field {
+  display: inline-block;
+  align-items: center;
+}
+
+.field textarea{
+  align-self: center;
+}
+
+label{
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+}

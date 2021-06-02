@@ -1,5 +1,5 @@
 .formControl{
-
+  display: inline-block;
 }
 
 textarea, input{
@@ -14,8 +14,13 @@ textarea, input{
 }
 
 .formSummatyError {
-  width: 165px;
+  /* width: 165px; */
   text-align: center;
   border: solid 1px red;
   color: red;
+  display: grid;
+}
+
+.formSummatyError div {
+  align-self: center;
 }

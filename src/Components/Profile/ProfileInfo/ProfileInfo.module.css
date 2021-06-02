@@ -1,4 +1,6 @@
-.descriptionBlock {
+.descriptionBlock button, .descriptionBlock input{
+  display: block;
+  margin: 10px 0px;
 }
 
 .descriptionBlock h4 {
@@ -11,4 +13,21 @@
 
 .avatarBlock img{
   border-radius: 50%;
+}
+
+.inputPhoto {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputPhoto + label{
+  cursor: pointer;
+}
+
+.status{
+  font-size: 14px;
 }

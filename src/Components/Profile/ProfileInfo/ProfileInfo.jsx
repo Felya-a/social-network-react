@@ -1,30 +1,49 @@
 import Preloader from '../../common/PreLoader/Preloader';
-import classes from './ProfileInfo.module.css';
+import styles from './ProfileInfo.module.css';
 import UserPhotoSmall from '../../../assets/images/AvaSmall.png';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+import { useState } from 'react';
+import ProfileData from './ProfileData/ProfileData';
+import ProfileDataEdit from './ProfileData/ProfileDataEdit';
 
 
 let ProfileInfo = (props) => {
-    return (
+
+  const [editMode, setEditMode] = useState(false)
+
+  function photoSelected(event) {
+    props.savePhoto(event.target.files[0])
+  }
+
+  return (
+    <div>
+      {(props.profile) ?
         <div>
-            {(props.profile) ?
-                <div>
-                    <div className={classes.avatarBlock}>
-                        <img src={props.profile.photos.large || UserPhotoSmall} alt="" />
-                        {/* <img src="https://i09.fotocdn.net/s118/c2205463c8129656/user_l/2687642087.jpg" alt="" /> */}
-                    </div>
-                    <div className={classes.descriptionBlock}>
-                        <h4>{props.profile.fullName}</h4>
-                        <ProfileStatusWithHooks setStatusThunkCreator={props.setStatusThunkCreator} status={props.status}/>
-                        {props.profile.contacts? <div>VK: <a href={"https:/" + props.profile.contacts.vk}>{props.profile.contacts.vk}</a></div> : null}
-                        {props.profile.contacts? <div>Github: <a href={"https:/" + props.profile.contacts.github}>{props.profile.contacts.github}</a></div> : null}
-                        {props.profile.contacts? <div>Instagram: <a href={"https:/" + props.profile.contacts.instagram}>{props.profile.contacts.instagram}</a></div> : null}
-                    </div>
-                </div>:
-                <Preloader />
+          <div className={styles.avatarBlock}>
+            <img src={props.profile.photos.large || UserPhotoSmall} alt="" />
+          </div>
+          <div className={styles.descriptionBlock}>
+            {props.isOwner
+              ?
+              <div>
+                <input type="file" id="file_photo" className={styles.inputPhoto} onChange={photoSelected} />
+                <label for="file_photo"><span>Загрузить фото</span></label>
+              </div>
+              : null
             }
-        </div>
-    )
+            <h4>{props.profile.fullName}</h4>
+            <ProfileStatusWithHooks setStatusThunkCreator={props.setStatusThunkCreator} status={props.status} isOwner={props.isOwner} />
+            <br />
+            {editMode
+              ? <ProfileDataEdit setEditMode={() => setEditMode(false)} />
+              : <ProfileData profile={props.profile} setEditMode={() => setEditMode(true)} isOwner={props.isOwner} />
+            }
+          </div>
+        </div> :
+        <Preloader />
+      }
+    </div>
+  )
 }
 
 export default ProfileInfo;
