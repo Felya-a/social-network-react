@@ -1,19 +1,19 @@
 import { NavLink } from 'react-router-dom';
-import classes from './Header.module.css';
+import './Header.scss';
 
 const Header = (props) => {
     return (
-        <header className={classes.header}>
-            <div className={classes.logo}>
+        <header className="header">
+            <div className="logo">
                 <img src='https://www.webidunya.com/wp-content/uploads/2018/07/logo-tasarim-firmalari.png'></img>
             </div>
-            <div className={classes.info}>
-                Header
+            <div className="info">
+                <span> 641027B@gmail.com</span>
             </div>
-            <div className={classes.loginBlock}>
+            <div className="loginBlock">
                 {props.isAuth ?
-                    props.login.toUpperCase() :
-                    < NavLink className={classes.loginBlock_Item} to={`/login`}>Login</NavLink>
+                    < NavLink className="loginBlock__item" to={`/login`} >{props.login.toUpperCase()}</NavLink> :
+                    < NavLink className="loginBlock__item" to={`/login`}>Sing in</NavLink>
                 }
             </div>
         </header >

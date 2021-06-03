@@ -1,43 +1,69 @@
 import { connect } from "react-redux"
 import { Field, reduxForm } from "redux-form"
 import { Input, Textarea } from "../../../common/FormsControls/FormsControls"
-import styles from "./ProfileDataEdit.module.css"
+import "./ProfileDataEdit.scss"
 import { updateDataProfile } from '../../../../redux/profileReducer';
-import stylesError from "../../../common/FormsControls/FormsControls.module.css"
+import "../../../common/FormsControls/FormsControls.scss"
 
 
 const ProfileForm = (props) => {
   return (
-    <form action="" onSubmit={props.handleSubmit} className={styles.profileForm}>
+    <form action="" onSubmit={props.handleSubmit} className="profileForm">
       <button>Сохранить</button>
       <button onClick={() => { props.reset(); props.setEditMode() }} type='button' >Отменить</button>
       {props.error &&
-        <div className={stylesError.formSummatyError}>
-          <div>{props.error}</div>
+        <div className="error">
+          <div className='error__message'>{props.error}</div>
         </div>
       }
+      <label for="fullName">Full name: </label>
+      <div className="profileForm__item">
+        <Field component={Input} name="fullName" id="fullName" />
+      </div>
       <label for="job">Looking for a job</label>
-      <Field className={styles.field} type="checkbox" component={Input} name="lookingForAJob" id="job" />
+      <div className="profileForm__item">
+        <Field type="checkbox" component={Input} name="lookingForAJob" id="job" />
+      </div>
       <label for="jobDesk">My professional skills:</label>
-      <Field className={styles.field} component={Textarea} name="lookingForAJobDescription" id="jobDesk" />
+      <div className="profileForm__item">
+        <Field component={Textarea} name="lookingForAJobDescription" id="jobDesk" />
+      </div>
       <label for="aboutMe">About me:</label>
-      <Field className={styles.field} component={Textarea} name="aboutMe" id="aboutMe" />
+      <div className="profileForm__item">
+        <Field component={Textarea} name="aboutMe" id="aboutMe" />
+      </div>
       <label for="gitHub">GitHub:</label>
-      <Field className={styles.field} component={Input} name="github" id="gitHub" />
+      <div className="profileForm__item">
+        <Field component={Input} name="github" id="gitHub" />
+      </div>
       <label for="vk">VK:</label>
-      <Field className={styles.field} component={Input} name="vk" id="vk" value="Hello" />
+      <div className="profileForm__item">
+        <Field component={Input} name="vk" id="vk" value="Hello" />
+      </div>
       <label for="facebook">Facebook:</label>
-      <Field className={styles.field} component={Input} name="facebook" id="facebook" />
+      <div className="profileForm__item">
+        <Field component={Input} name="facebook" id="facebook" />
+      </div>
       <label for="instagram">Instagram:</label>
-      <Field className={styles.field} component={Input} name="instagram" id="instagram" />
+      <div className="profileForm__item">
+        <Field component={Input} name="instagram" id="instagram" />
+      </div>
       <label for="twitter">Twitter:</label>
-      <Field className={styles.field} component={Input} name="twitter" id="twitter" />
+      <div className="profileForm__item">
+        <Field component={Input} name="twitter" id="twitter" />
+      </div>
       <label for="website">Website:</label>
-      <Field className={styles.field} component={Input} name="website" id="website" />
+      <div className="profileForm__item">
+        <Field component={Input} name="website" id="website" />
+      </div>
       <label for="mainlink">MainLink:</label>
-      <Field className={styles.field} component={Input} name="mainLink" id="mainlink" />
+      <div className="profileForm__item">
+        <Field component={Input} name="mainLink" id="mainlink" />
+      </div>
       <label for="youtube">Youtube:</label>
-      <Field className={styles.field} component={Input} name="youtube" id="youtube" />
+      <div className="profileForm__item">
+        <Field component={Input} name="youtube" id="youtube" />
+      </div>
     </form>
   )
 }

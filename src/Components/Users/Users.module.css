@@ -13,9 +13,18 @@
 .avatar{
   justify-self: center;  
 }
+.avatar img{
+  width: 100px;
+}
 
-.follow{
+.follow {
   justify-self: center;  
+}
+.follow button{
+  padding: 1px 10px;
+  border: solid 1px black;
+  border-radius: 15px;
+  font-size: 13px;
 }
 
 .info{

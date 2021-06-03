@@ -1,0 +1,36 @@
+.profileForm {
+  display: grid;
+  grid-template-columns: 25% 40% 1fr;
+  justify-items: center;
+  button {
+    width: 100px;
+    justify-self: center;
+    font-size: 16px;
+  }
+  &__item {
+    grid-column: 2;
+    input{
+      border: 1px solid black;
+      width: 200px;
+    }
+    textarea {
+      border: 1px solid black;
+      align-self: center;
+      margin: 7px
+    }
+  }
+  .error{
+    grid-column: span 2;
+    &__message{
+      font-size: 18px;
+      color: red;
+      outline: red solid 1px;
+    }
+  }
+}
+
+label {
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+}

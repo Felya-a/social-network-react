@@ -7,8 +7,12 @@ textarea {
 }
 
 
-.submit{
+.submit, .reset{
     display: inline;
+    margin: 5px;
+    border: solid 1px black;
+    padding: 3px 5px;
+    border-radius: 10px;
 }
 
 input.reset{

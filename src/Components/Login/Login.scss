@@ -1,0 +1,99 @@
+.btn {
+  padding: 10px 30px;
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: blue;
+  border-radius: 10px;
+  &:hover {
+    color: white;
+    background-color: rgb(129, 129, 129);
+  }
+}
+
+.login {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  &__content {
+    display: grid;
+  }
+  &__title {
+    justify-self: center;
+    margin: 15px;
+  }
+  &__button_auth {
+  }
+}
+
+.form {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 30% 1fr;
+  grid-template-areas:
+    "email email"
+    "password password"
+    "rememberme remembermeText"
+    "error error"
+    "login login";
+  input {
+    margin: 10px;
+    padding: 5px 10px;
+  }
+  &__input_email {
+    grid-area: email;
+  }
+  &__input_password {
+    grid-area: password;
+  }
+  &__checkbox_rememberme {
+    grid-area: rememberme;
+    input {
+      height: 15px;
+      width: 15px;
+    }
+  }
+  &__input_text {
+    grid-area: remembermeText;
+    user-select: none;
+  }
+  &__btnlogin {
+    grid-area: login;
+  }
+}
+
+.error {
+  display: grid;
+  grid-area: error;
+  grid-template-areas: 
+  'captcha'
+  'message';
+  &__message {
+    grid-area: message;
+    outline: solid 1px red;
+    color: red;
+    padding: 5px 10px;
+    margin: 15px 0;
+  }
+  &__captcha {
+    margin: 10px 0 0 0;
+    display: grid;
+    grid-area: captcha;
+    grid-template-areas:
+    'img'
+    'input';  
+    &_img {
+      grid-area: img;
+      justify-self: center;
+      display: block;
+      width: 150px;
+    }
+    &_input {
+      grid-area: input;
+    }
+  }
+}

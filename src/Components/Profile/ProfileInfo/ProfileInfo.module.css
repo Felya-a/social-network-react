@@ -4,7 +4,8 @@
 }
 
 .descriptionBlock h4 {
-  margin: 5px 0;
+  margin: 10px 0;
+  font-size: 18px;
 }
 
 .descriptionBlock h4::first-letter {
@@ -13,6 +14,8 @@
 
 .avatarBlock img{
   border-radius: 50%;
+  width: 100px;
+  margin: 0 0 20px 0;
 }
 
 .inputPhoto {
@@ -30,4 +33,5 @@
 
 .status{
   font-size: 14px;
+  width: 250px;
 }

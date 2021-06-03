@@ -4,16 +4,16 @@ import { Input } from '../common/FormsControls/FormsControls';
 import { required } from '../../utils/validators/validators';
 import { loginThunkCreator, logoutProfile } from '../../redux/authReduser';
 import { connect } from 'react-redux';
-import stylesError from "../common/FormsControls/FormsControls.module.css"
-import styles from "./Login.module.css"
-import { Redirect } from 'react-router';
+import "../common/FormsControls/FormsControls.scss"
+import "./Login.scss"
+// import "./buttion.scss"
 
 
 const LoginForm = (props) => {
+  console.log(props.error);
   return (
-    <form onSubmit={props.handleSubmit} className={styles.formLogin}>
-      <span>641027B@gmail.com</span>
-      <div>
+    <form onSubmit={props.handleSubmit} className="form">
+      <div className="form__input_email input">
         <Field
           type="text"
           placeholder="Email"
@@ -21,7 +21,7 @@ const LoginForm = (props) => {
           name='email'
           validate={[required]} />
       </div>
-      <div>
+      <div className='form__input_password input'>
         <Field
           type="text"
           placeholder="Password"
@@ -29,31 +29,38 @@ const LoginForm = (props) => {
           name='password'
           validate={[required]} />
       </div>
-      <div>
+      <div className='form__checkbox_rememberme'>
         <Field
           type="checkbox"
           component={Input}
-          name='rememberMe' /> remember me
+          name='rememberMe'
+          id='rememberMe' />
       </div>
-      {props.error &&
-        <div className={stylesError.formSummatyError}>
-          {props.error}
-        </div>
-      }
-      {props.urlCaptcha &&
-        < div className={styles.error__captcha}>
-          <img src={props.urlCaptcha} alt="Captcha" />
-          <Field
-            type="text"
-            component={Input}
-            name="captchaText"
-          validate={[required]}
-          />
-        </div>
-      }
+      <label for="rememberMe" className='form__input_text'>
+        Remember me
+      </label>
+      <div className="error">
+        {props.error &&
+          <div className="error__message">
+            <div>{props.error}</div>
+          </div>
+        }
+        {props.urlCaptcha &&
+          < div className="error__captcha">
+            <img src={props.urlCaptcha} alt="Captcha" className='error__captcha_img' />
+            <Field
+              className='error__captcha_input'
+              type="text"
+              component={Input}
+              placeholder="Captcha"
+              name="captchaText"
+              validate={[required]}
+            />
+          </div>
+        }
+      </div>
 
-      <button>Sign up</button>
-      <button onClick={props.reset} type='button'>Reset</button>
+      <button className='form__btnlogin btn'>Login</button>
     </form >
   )
 }
@@ -71,13 +78,15 @@ let Login = (props) => {
   }
 
   return (
-    < div >
-      <h1>Login</h1>
-      {props.isAuth ?
-        <button onClick={logout} type='button' >Logout</button> :
-        <LoginReduxForm onSubmit={onSubmit} urlCaptcha={props.urlCaptcha} />
-      }
-    </div >
+    <div className='login'>
+      <div className='login__content'>
+        <h3 className='login__title'>LOGIN</h3>
+        {props.isAuth ?
+          <button onClick={logout} type='button' className='login__button_auth btn'>Logout</button> :
+          <LoginReduxForm onSubmit={onSubmit} urlCaptcha={props.urlCaptcha} />
+        }
+      </div>
+    </div>
   )
 }
 const mapStateToProps = (state) => ({

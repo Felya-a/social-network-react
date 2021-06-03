@@ -6,6 +6,12 @@
 }
 
 .app-wrapper {
+  &-content {
+    grid-area: content;
+    background-color: #e1e1e1;
+    padding: 20px;
+    color: #000;
+  }
   gap: 15px;
   grid-column: 2;
   display: grid;
@@ -13,13 +19,6 @@
   grid-template-columns: 18% 1fr;
 }
 
-.app-wrapper-content {
-  grid-area: content;
-  background-color: #e1e1e1;
-  padding: 20px;
-  color: #000;
-}
-
-.app-wrapper-content img {
-  width: 100px;
-}
+// .app-wrapper-content img {
+//   width: 100px;
+// }

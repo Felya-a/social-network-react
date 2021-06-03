@@ -9,7 +9,7 @@ const maxLengthCreator10 = maxLengthCreator(10);
 
 const PostForm = (props) => {
 	return (
-		<form onSubmit={props.handleSubmit}>
+		<form onSubmit={() => {props.handleSubmit(); props.reset()}}>
 			<Field cols="30" rows="3" component={Textarea} name='postText' validate={[required, maxLengthCreator10]} />
 			<br />
 			<button className={classes.submit} type="submit" >Отправить</button>
