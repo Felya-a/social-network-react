@@ -17,9 +17,10 @@ let Users = (props) => {
       />
       {(props.isFetching) ? // PreLoader
         <Preloader /> :
-        props.users.map(item =>
+        props.users.map((item, index) =>
           <div>
             <User item={item}
+              key={index}
               unfollowThunkCreator={props.unfollowThunkCreator}
               followThunkCreator={props.followThunkCreator}
               followingIsProgress={props.followingIsProgress} />

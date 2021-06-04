@@ -29,12 +29,21 @@
 .MessagesElemenst{
     display: grid;
     justify-items: start;
-
+    
 }
 .MessageInput{
-    align-self: end;
+    text-align: center;
     display: grid;
-    justify-items: center;
+    textarea{
+        padding: 4px;
+        resize: none;
+    }
+    .btn{
+        justify-self: center;
+        padding: 0;
+        line-height: 30px;
+        width: 130px;
+    }
 }
 .submit{
     margin: 15px 0 0 0;

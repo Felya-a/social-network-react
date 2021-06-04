@@ -36,7 +36,7 @@ const LoginForm = (props) => {
           name='rememberMe'
           id='rememberMe' />
       </div>
-      <label for="rememberMe" className='form__input_text'>
+      <label htmlFor="rememberMe" className='form__input_text'>
         Remember me
       </label>
       <div className="error">

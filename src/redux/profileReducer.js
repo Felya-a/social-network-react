@@ -3,21 +3,23 @@ import { getProfile, getStatus, updateStatus, savePhoto, setMeDataProfile } from
 
 // Action Type
 const ADD_POST = "ADD_POST";
-const SETTINGS_CHANGE_SCORE = "SETTINGS_CHANGE_SCORE";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
 const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS";
 
 // Action Creator
 export const addPostActionCreator = (postText) => ({ type: ADD_POST, postText })
-export const SettingsChangeScore = () => ({ type: SETTINGS_CHANGE_SCORE, })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
 
 export const setStatusThunkCreator = (status) => async (dispatch) => {
-	let response = await updateStatus(status)
-	if (response.data.resultCode == 0) dispatch(setStatus(status));
+	try {
+		let response = await updateStatus(status)
+		if (response.data.resultCode == 0) dispatch(setStatus(status));
+	} catch (error) {
+		alert(error.response.status)		
+	}
 }
 export const getStatusThunkCreator = (userID) => async (dispatch) => {
 	let response = await getStatus(userID)
@@ -93,11 +95,6 @@ const profileReducer = (state = initialState, action) => {
 				...state,
 				posts: [...state.posts, newPost],
 			};
-		case SETTINGS_CHANGE_SCORE:
-			return {
-				...state,
-				SettingsScore: state.SettingsScore + 1,
-			}
 		case SET_USER_PROFILE:
 			return {
 				...state,

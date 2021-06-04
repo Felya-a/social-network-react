@@ -4,7 +4,7 @@ const FormsControl = ({ input, meta, ...props }) => {
   const hasError = meta.touched && meta.error;
   // <div className={"formControl" + (hasError ? " error" : '')}>
   return (
-    <props.tagName {...props} {...input} className={"formControl" + (hasError ? " error" : '')}></props.tagName>
+    <props.name {...props} {...input} className={"formControl" + (hasError ? " error" : '')}></props.name>
   )
 }
 {/* {hasError &&
@@ -15,9 +15,9 @@ const FormsControl = ({ input, meta, ...props }) => {
 // </div>
 
 export const Textarea = (props) => {
-  return <FormsControl tagName='textarea' {...props} />
+  return <FormsControl name="textarea" {...props} />
 }
 
 export const Input = (props) => {
-  return <FormsControl tagName='input' {...props} />
+  return <FormsControl name="input" {...props} />
 }

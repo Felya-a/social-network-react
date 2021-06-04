@@ -6,7 +6,7 @@ import FooterContainer from './Components/Footer/Footer.jsx';
 import News from './Components/News/News.jsx';
 import Music from './Components/Music/Music.jsx';
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
-import SettingsContainer from './Components/Settings/SettingsContainer';
+import Settings from './Components/Settings/Settings';
 import NotFoundPage from './Components/NotFoundPage/NotFoundPage'
 // import UsersContainer from './Components/Users/UsersContainer';
 // import ProfileContainer from './Components/Profile/ProfileContainer';
@@ -40,7 +40,7 @@ class App extends React.Component {
                   <Route path='/users' render={() => <UsersContainer />} />
                   <Route path='/news' render={() => <News />} />
                   <Route path='/music' render={() => <Music />} />
-                  <Route path='/settings' render={() => <SettingsContainer />} />
+                  <Route path='/settings' render={() => <Settings />} />
                   <Route path='/login' render={() => < Login />} />
                   <Route path='*' render={() => < NotFoundPage />} />
                 </Switch>

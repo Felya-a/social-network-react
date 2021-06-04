@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Footer.module.css';
+import './Footer.scss';
 
 class Footer extends React.Component {
     state = {
@@ -21,7 +21,7 @@ class Footer extends React.Component {
         return str
     }
     render() {
-        return <div className={classes.footer}>
+        return <div className="footer">
             {this.state.time}
         </div>
     }

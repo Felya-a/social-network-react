@@ -9,58 +9,58 @@ import "../../../common/FormsControls/FormsControls.scss"
 const ProfileForm = (props) => {
   return (
     <form action="" onSubmit={props.handleSubmit} className="profileForm">
-      <button>Сохранить</button>
-      <button onClick={() => { props.reset(); props.setEditMode() }} type='button' >Отменить</button>
+      <button className='profileForm__btn btn'>Сохранить</button>
+      <button className='profileForm__btn btn' onClick={() => { props.reset(); props.setEditMode() }} type='button' >Отменить</button>
       {props.error &&
         <div className="error">
           <div className='error__message'>{props.error}</div>
         </div>
       }
-      <label for="fullName">Full name: </label>
+      <label htmlFor="fullName">Full name: </label>
       <div className="profileForm__item">
         <Field component={Input} name="fullName" id="fullName" />
       </div>
-      <label for="job">Looking for a job</label>
+      <label htmlFor="job">Looking for a job</label>
       <div className="profileForm__item">
         <Field type="checkbox" component={Input} name="lookingForAJob" id="job" />
       </div>
-      <label for="jobDesk">My professional skills:</label>
+      <label htmlFor="jobDesk">My professional skills:</label>
       <div className="profileForm__item">
         <Field component={Textarea} name="lookingForAJobDescription" id="jobDesk" />
       </div>
-      <label for="aboutMe">About me:</label>
+      <label htmlFor="aboutMe">About me:</label>
       <div className="profileForm__item">
         <Field component={Textarea} name="aboutMe" id="aboutMe" />
       </div>
-      <label for="gitHub">GitHub:</label>
+      <label htmlFor="gitHub">GitHub:</label>
       <div className="profileForm__item">
         <Field component={Input} name="github" id="gitHub" />
       </div>
-      <label for="vk">VK:</label>
+      <label htmlFor="vk">VK:</label>
       <div className="profileForm__item">
         <Field component={Input} name="vk" id="vk" value="Hello" />
       </div>
-      <label for="facebook">Facebook:</label>
+      <label htmlFor="facebook">Facebook:</label>
       <div className="profileForm__item">
         <Field component={Input} name="facebook" id="facebook" />
       </div>
-      <label for="instagram">Instagram:</label>
+      <label htmlFor="instagram">Instagram:</label>
       <div className="profileForm__item">
         <Field component={Input} name="instagram" id="instagram" />
       </div>
-      <label for="twitter">Twitter:</label>
+      <label htmlFor="twitter">Twitter:</label>
       <div className="profileForm__item">
         <Field component={Input} name="twitter" id="twitter" />
       </div>
-      <label for="website">Website:</label>
+      <label htmlFor="website">Website:</label>
       <div className="profileForm__item">
         <Field component={Input} name="website" id="website" />
       </div>
-      <label for="mainlink">MainLink:</label>
+      <label htmlFor="mainlink">MainLink:</label>
       <div className="profileForm__item">
         <Field component={Input} name="mainLink" id="mainlink" />
       </div>
-      <label for="youtube">Youtube:</label>
+      <label htmlFor="youtube">Youtube:</label>
       <div className="profileForm__item">
         <Field component={Input} name="youtube" id="youtube" />
       </div>

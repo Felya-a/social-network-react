@@ -2,10 +2,11 @@
   display: grid;
   grid-template-columns: 25% 40% 1fr;
   justify-items: center;
-  button {
-    width: 100px;
+  &__btn {
     justify-self: center;
-    font-size: 16px;
+    font-size: 15px;
+    padding: 0 20px;
+    line-height: 30px;
   }
   &__item {
     grid-column: 2;

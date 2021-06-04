@@ -9,7 +9,7 @@ import ProfileDataEdit from './ProfileData/ProfileDataEdit';
 
 let ProfileInfo = (props) => {
 
-  const [editMode, setEditMode] = useState(false)
+  const [editMode, setEditMode] = useState(false);
 
   function photoSelected(event) {
     props.savePhoto(event.target.files[0])
@@ -27,7 +27,7 @@ let ProfileInfo = (props) => {
               ?
               <div>
                 <input type="file" id="file_photo" className={styles.inputPhoto} onChange={photoSelected} />
-                <label for="file_photo"><span>Загрузить фото</span></label>
+                <label htmlFor="file_photo"><span>Загрузить фото</span></label>
               </div>
               : null
             }

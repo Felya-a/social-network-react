@@ -35,3 +35,6 @@
   font-size: 14px;
   width: 250px;
 }
+.status span {
+  cursor: pointer;
+}

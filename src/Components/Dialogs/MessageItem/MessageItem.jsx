@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import classes from './../Dialogs.module.css';
+import '../Dialogs.scss';
 
 const MessageItem = (props) => {
     return (
-        <div className={classes.Message}>{props.text}</div>
+        <div key={props.key} className="Message">{props.text}</div>
     )
 }
 

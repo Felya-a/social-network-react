@@ -9,7 +9,7 @@ const maxLengthCreator10 = maxLengthCreator(10);
 
 const PostForm = (props) => {
 	return (
-		<form onSubmit={() => {props.handleSubmit(); props.reset()}}>
+		<form onSubmit={() => { props.handleSubmit(); props.reset() }}>
 			<Field cols="30" rows="3" component={Textarea} name='postText' validate={[required, maxLengthCreator10]} />
 			<br />
 			<button className={classes.submit} type="submit" >Отправить</button>
@@ -46,7 +46,7 @@ const MyPostsReduxForm = reduxForm({ form: 'post' })(PostForm)
 
 const MyPosts = React.memo((props) => { // неработает из-за сильной глубины изменяющихся значений в props (так думаю)
 
-	let postsElements = props.posts.map(el => (<Post textPost={el.textPost} />));
+	let postsElements = props.posts.map((el, index) => (<Post key={index} textPost={el.textPost} />));
 
 	const onSubmit = (formData) => {
 		props.addPost(formData.postText);
