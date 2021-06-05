@@ -10,10 +10,13 @@ const ProfileData = ({ profile, isOwner, setEditMode }) => {
       {profile.aboutMe &&
         <div className='profileData__item'>About me: {profile.aboutMe}</div>
       }
-      {Object.keys(profile.contacts).map(item => {
-        if (!profile.contacts[item]) return;
-        return <Contact key={item} contactTitle={item} contactValue={profile.contacts[item]} />
-      })}
+      <div className="profileData__contacts">
+        <span className='profileData__contacts_title'>Contacts:</span>
+        {Object.keys(profile.contacts).map(item => {
+          if (!profile.contacts[item]) return;
+          return <Contact key={item} contactTitle={item} contactValue={profile.contacts[item]} />
+        })}
+      </div>
       {isOwner &&
         <button className='btn' onClick={setEditMode}>Редактировать профиль</button>
       }
@@ -23,7 +26,9 @@ const ProfileData = ({ profile, isOwner, setEditMode }) => {
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
-    <div className='profileData__item'>{`${contactTitle[0].toUpperCase()}${contactTitle.slice(1)}`}: <a href={contactValue}>{contactValue}</a></div>
+    <div className='profileData__contacts item__contacts'>
+      {`${contactTitle[0].toUpperCase()}${contactTitle.slice(1)}`}: <a href={contactValue}>{contactValue}</a>
+    </div>
   )
 }
 

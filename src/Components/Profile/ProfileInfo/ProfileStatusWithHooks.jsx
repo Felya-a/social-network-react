@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./ProfileInfo.module.css"
+import "./ProfileInfo.scss"
 
 const ProfileStatusWithHooks = (props) => {
   // props - setStatusThunkCreator, status
@@ -37,20 +37,18 @@ const ProfileStatusWithHooks = (props) => {
   }
 
   return (
-    <div className={styles.status}>
+    <div className="profileInfo__status">
       {editMode
         ?
-        <div>
-          <input
-            onChange={chengeStatusText}
-            autoFocus={true}
-            onBlur={chengeEditMode}
-            type="text"
-            value={status}
-          />
-        </div>
+        <textarea
+          onChange={chengeStatusText}
+          autoFocus={true}
+          onBlur={chengeEditMode}
+          type="text"
+          value={status}
+        />
         : props.isOwner ?
-          <span disabled={true} onDoubleClick={chengeEditMode}>{props.status || "-------"}</span>
+          <span disabled={true} onClick={chengeEditMode}>{props.status || "-------"}</span>
           : <span disabled={true} >{props.status || "-------"}</span>
       }
     </div>

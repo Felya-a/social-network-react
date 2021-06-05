@@ -3,4 +3,12 @@
     font-size: 16px;
     line-height: 25px;
   }
+  &__contacts{
+    margin: 15px 0;
+    &_title{
+     letter-spacing: 1px;      
+    }
+    // .item__contacts {
+    // }
+  }
 }

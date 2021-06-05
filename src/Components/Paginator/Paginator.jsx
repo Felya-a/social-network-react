@@ -32,11 +32,12 @@ function Paginator({ totalUsersCount, pageSize, currentPage, chengeCurrentPage, 
               .map(page => {
                 return (
                   <div
+                    key={page}
                     className={styles.circle}
                     onClick={() => chengeCurrentPage(page)}
                   >
                     <span
-                      className={currentPage === page && styles.selectedPage}>
+                      className={currentPage === page && styles.selectedPage || null}>
                       {page}
                     </span>
                   </div>

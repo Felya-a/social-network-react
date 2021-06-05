@@ -34,11 +34,15 @@
 .MessageInput{
     text-align: center;
     display: grid;
+    grid-template: auto auto / 1fr;
     textarea{
-        padding: 4px;
+        grid-row: 1;
+        padding: 4px 6px;
         resize: none;
+        border-radius: 10px;
     }
     .btn{
+        grid-row: 2;
         justify-self: center;
         padding: 0;
         line-height: 30px;

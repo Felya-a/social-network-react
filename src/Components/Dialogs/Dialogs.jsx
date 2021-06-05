@@ -6,7 +6,7 @@ import './Dialogs.scss';
 import { Textarea } from '../common/FormsControls/FormsControls';
 import { maxLengthCreator, required } from '../../utils/validators/validators';
 
-const maxLengthCreator10 = maxLengthCreator(10); // потом исправить на большее значение
+const maxLengthCreator100 = maxLengthCreator(100); // потом исправить на большее значение
 
 
 const DialogsForm = (props) => {
@@ -17,7 +17,7 @@ const DialogsForm = (props) => {
 				rows='3'
 				placeholder='Введите сообщение...'
 				name='messageText'
-				validate = {[required, maxLengthCreator10]}
+				validate={[maxLengthCreator100]}
 				component={Textarea}
 			/>
 			<button className="submit btn" type='submit'>Отправить</button>
@@ -45,7 +45,7 @@ const Dialogs = (props) => {
 				<div className="MessagesElemenst">
 					{MessagesElemenst}
 				</div>
-				<DialogsReduxFrom onSubmit={onSubmit}/>
+				<DialogsReduxFrom onSubmit={onSubmit} />
 			</div>
 		</div >
 	)

@@ -31,7 +31,6 @@ const MyPostsReduxForm = reduxForm({ form: 'post' })(PostForm)
 // 			this.props.addPost(formData.postText);
 // 		}
 
-// 		console.log('RENDER MYPOSTS');
 // 		return (
 // 			<div>
 // 				<div className={classes.postsHeader} >My posts</div>

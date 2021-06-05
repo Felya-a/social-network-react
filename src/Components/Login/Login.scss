@@ -25,8 +25,8 @@
     justify-self: center;
     margin: 15px;
   }
-  &__button_auth {
-  }
+  // &__button_auth {
+  // }
 }
 
 .form {
@@ -60,40 +60,40 @@
   &__input_text {
     grid-area: remembermeText;
     user-select: none;
+    padding: 0 0 3px 0;
   }
   &__btnlogin {
     grid-area: login;
   }
-}
-
-.error {
-  display: grid;
-  grid-area: error;
-  grid-template-areas: 
-  'captcha'
-  'message';
-  &__message {
-    grid-area: message;
-    outline: solid 1px red;
-    color: red;
-    padding: 5px 10px;
-    margin: 15px 0;
-  }
-  &__captcha {
-    margin: 10px 0 0 0;
+  .error {
     display: grid;
-    grid-area: captcha;
+    grid-area: error;
     grid-template-areas:
-    'img'
-    'input';  
-    &_img {
-      grid-area: img;
-      justify-self: center;
-      display: block;
-      width: 150px;
+      "captcha"
+      "message";
+    &__message {
+      grid-area: message;
+      outline: solid 1px red;
+      color: red;
+      padding: 5px 10px;
+      margin: 15px 0;
     }
-    &_input {
-      grid-area: input;
+    &__captcha {
+      margin: 10px 0 0 0;
+      display: grid;
+      grid-area: captcha;
+      grid-template-areas:
+        "img"
+        "input";
+      &_img {
+        grid-area: img;
+        justify-self: center;
+        display: block;
+        width: 150px;
+      }
+      &_input {
+        grid-area: input;
+      }
     }
   }
 }

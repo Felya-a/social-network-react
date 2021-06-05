@@ -35,7 +35,7 @@ let store = {
         this.getRerender = observer;
     },
     getRerender() {
-        console.log('rerender'); // при работе приложения код этой функции переписывается в функции subscribe
+        // при работе приложения код этой функции переписывается в функции subscribe
     },
     dispatch(action) {
         this._state.profilePage = profileReducer(this._state.profilePage, action);

@@ -10,7 +10,6 @@ import "./Login.scss"
 
 
 const LoginForm = (props) => {
-  console.log(props.error);
   return (
     <form onSubmit={props.handleSubmit} className="form">
       <div className="form__input_email input">

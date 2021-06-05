@@ -16,14 +16,14 @@ export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos 
 export const setStatusThunkCreator = (status) => async (dispatch) => {
 	try {
 		let response = await updateStatus(status)
-		if (response.data.resultCode == 0) dispatch(setStatus(status));
+		if (response.data.resultCode === 0) dispatch(setStatus(status));
 	} catch (error) {
 		alert(error.response.status)		
 	}
 }
 export const getStatusThunkCreator = (userID) => async (dispatch) => {
 	let response = await getStatus(userID)
-	if (response.status == 200) {
+	if (response.status === 200) {
 		dispatch(setStatus(response.data));
 	}
 }
@@ -33,13 +33,13 @@ export const getUserProfileThunkCreator = (userID) => async (dispatch) => {
 }
 export const savePhotoThunkCreator = (photo) => async (dispatch) => {
 	let response = await savePhoto(photo);
-	if (response.data.resultCode == 0) {
+	if (response.data.resultCode === 0) {
 		dispatch(savePhotoSuccess(response.data.data.photos))
 	}
 }
 export const updateDataProfile = (data) => async (dispatch) => {
 	let response = await setMeDataProfile(data);
-	if (response.data.resultCode == 0) {
+	if (response.data.resultCode === 0) {
 		dispatch(setUserProfile(data))
 	} else {
 		let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";

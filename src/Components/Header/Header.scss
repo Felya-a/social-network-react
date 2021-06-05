@@ -22,9 +22,10 @@
         height: auto;
     }
     .loginBlock {
+        cursor: pointer;
         img {
             width: 20px;
-            margin: 0 15px
+            margin: -3px 15px;
         }
         &__item {
             font-size: 15px;

@@ -39,7 +39,7 @@ export const unfollowThunkCreator = (userID) => async (dispatch) => { // зам�
 async function chengeFollow(dispatch, userID, apiMethod, actionCreator) {
 	dispatch(toggleFollowingProgress(true, userID));
 	let response = await apiMethod(userID);
-	if (response.data.resultCode == 0) dispatch(actionCreator(userID));
+	if (response.data.resultCode === 0) dispatch(actionCreator(userID));
 	dispatch(toggleFollowingProgress(false, userID));
 }
 
@@ -57,12 +57,12 @@ const usersReducer = (state = initialState, action) => {
 		case FOLLOW:
 			return {
 				...state,
-				users: state.users.map(item => (item.id == action.userID) ? { ...item, followed: true } : item)
+				users: state.users.map(item => (item.id === action.userID) ? { ...item, followed: true } : item)
 			}
 		case UNFOLLOW:
 			return {
 				...state,
-				users: state.users.map(item => (item.id == action.userID) ? { ...item, followed: false } : item)
+				users: state.users.map(item => (item.id === action.userID) ? { ...item, followed: false } : item)
 			}
 		case SET_USERS:
 			return {
@@ -90,7 +90,7 @@ const usersReducer = (state = initialState, action) => {
 				...state,
 				followingIsProgress: action.isFetching
 					? [...state.followingIsProgress, action.userID]
-					: state.followingIsProgress.filter(id => id != action.userID),
+					: state.followingIsProgress.filter(id => id !== action.userID),
 			}
 		default:
 			return state;

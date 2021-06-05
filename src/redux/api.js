@@ -63,7 +63,6 @@ export const savePhoto = (photoFile) => {
 }
 
 export const setMeDataProfile = (data) => {
-  console.log(data);
   return instance.put("/profile", data)
 }
 

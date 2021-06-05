@@ -1,0 +1,52 @@
+.profileInfo {
+  &__descriptionBlock {
+    button,
+    input {
+      display: block;
+      margin: 10px 0px;
+    }
+    h4 {
+      margin: 5px 0;
+      font-size: 18px;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+    &_statusSpan{
+      font-weight: 500;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+  }
+  &__avatarBlock {
+    margin-bottom: 20px;
+    img {
+      border-radius: 50%;
+      width: 100px;
+      margin: 0 0 10px 0;
+    }
+  }
+  &__inputPhoto {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    & + label {
+      cursor: pointer;
+    }
+  }
+  &__status {
+    font-size: 14px;
+    width: 250px;
+    textarea{
+      padding: 0;
+      margin: 0;
+      width: 250px;
+    }
+    span {
+      cursor: pointer;
+    }
+  }
+}

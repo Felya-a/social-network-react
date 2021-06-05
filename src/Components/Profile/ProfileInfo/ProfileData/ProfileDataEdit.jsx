@@ -72,7 +72,6 @@ const ProfileReduxForm = reduxForm({ form: "editProfile" })(ProfileForm);
 
 const ProfileDataEdit = (props) => {
   const onSubmit = (formData) => {
-    console.log(formData);
     const dataProfile = {
       ...formData,
       contacts: {

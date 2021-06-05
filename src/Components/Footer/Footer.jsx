@@ -8,16 +8,16 @@ class Footer extends React.Component {
     componentDidMount() {
         setInterval(() => { // часы
             let time = new Date();
-            let hours = this.TotalTime(String(time.getHours()));
-            let minutes = this.TotalTime(String(time.getMinutes()));
-            let sec = this.TotalTime(String(time.getSeconds()));
+            let hours = this.TotalTime(time.getHours());
+            let minutes = this.TotalTime(time.getMinutes());
+            let sec = this.TotalTime(time.getSeconds());
             this.setState({ time: `${hours}:${minutes}:${sec}` })
         }
             , 1000);
     }
     // добавление лидирующего нуля
     TotalTime(str) {
-        if (str.length == 1) return "0" + str;
+        if (String(str).length == 1) return "0" + str;
         return str
     }
     render() {

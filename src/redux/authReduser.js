@@ -18,9 +18,9 @@ export const authMeThunkCreator = () => async (dispatch) => {
 
 export const loginThunkCreator = ({ email, password, rememberMe, captchaText }) => async (dispatch) => {
 	let response = await logining(email, password, rememberMe, captchaText)
-	if (response.data.resultCode == 0) dispatch(authMeThunkCreator());
+	if (response.data.resultCode === 0) dispatch(authMeThunkCreator());
 	else {
-		if (response.data.resultCode == 10) dispatch(getCaptchaLogin(dispatch));
+		if (response.data.resultCode === 10) dispatch(getCaptchaLogin(dispatch));
 		let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error';
 		dispatch(stopSubmit('login', { _error: errorMessage }));
 	}
@@ -32,7 +32,6 @@ export const logoutProfile = () => async (dispatch) => {
 }
 export const getCaptchaLogin = () => async (dispatch) => {
 	let response = await getCaptcha()
-	console.log(response);
 	if (response.data.url) dispatch(setUrlCaptcha(response.data.url))
 }
 
