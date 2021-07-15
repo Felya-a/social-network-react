@@ -97,57 +97,6 @@ const ProfileDataEdit = (props) => {
   )
 }
 
-/*
-FormData
-facebook: "jj"
-gitHub: "j"
-instagram: "j"
-job: true
-jobDesk: "jjj"
-mainlink: "j"
-twitter: "j"
-vk: "jj"
-website: "jj"
-*/
-
-/*
-Request
-userId: required(integer)
-lookingForAJob: required(boolean)
-lookingForAJobDescription: required(string)
-fullName: required(string)
-contacts: required(object)
-  github: required(string)
-  vk: required(string)
-  facebook: required(string)
-  instagram: required(string)
-  twitter: required(string)
-  website: required(string)
-  youtube: required(string)
-  mainLink: required(string)
-*/
-
-/*
-State.profilePage.profile
-aboutMe: null
-contacts:
-  facebook: null
-  github: null
-  instagram: null
-  mainLink: null
-  twitter: null
-  vk: null
-  website: null
-  youtube: null
-fullName: "qwerty123QWE"
-lookingForAJob: false
-lookingForAJobDescription: null
-photos:
-  large: "https://social-network.samuraijs.com/activecontent/images/users/16736/user.jpg?v=12"
-  small: "https://social-network.samuraijs.com/activecontent/images/users/16736/user-small.jpg?v=12"
-userId: 16736
-*/
-
 const mapStateToProps = (state) => {
   return {
     initialValues: { ...state.profilePage.profile, ...state.profilePage.profile.contacts, contacts: null },

@@ -27,7 +27,7 @@ class App extends React.Component {
   render() {
     if (!this.props.initialized) return <Preloader />
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="wrapper">
           <div className='app-wrapper'>
             <HeaderContainer />
@@ -50,7 +50,7 @@ class App extends React.Component {
             <FooterContainer />
           </div>
         </div>
-      </BrowserRouter >
+      </HashRouter >
     )
   }
 }

@@ -14,10 +14,9 @@ let ProfileInfo = (props) => {
   function photoSelected(event) {
     props.savePhoto(event.target.files[0])
   }
-
   return (
     <div>
-      {(props.profile) ?
+      {(props.profile.photos) ?
         <div className='profileInfo'>
           <div className="profileInfo__avatarBlock">
             <img src={props.profile.photos.large || UserPhotoSmall} alt="" />

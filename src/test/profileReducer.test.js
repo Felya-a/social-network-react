@@ -1,4 +1,4 @@
-import profileReducer, { addPostActionCreator } from "../redux/profileReducer";
+import profileReducer, { addPostActionCreator } from "../redux/profileReducer.ts";
 
 test("length of posts should be incremented", () => {
   

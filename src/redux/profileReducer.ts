@@ -8,36 +8,52 @@ const SET_STATUS = "SET_STATUS";
 const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS";
 
 // Action Creator
-export const addPostActionCreator = (postText) => ({ type: ADD_POST, postText })
-export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
-export const setStatus = (status) => ({ type: SET_STATUS, status })
-export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
+type AddPostActionCreatorType = {
+	type: typeof ADD_POST
+	postText: string
+}
+export const addPostActionCreator = (postText: string): AddPostActionCreatorType => ({ type: ADD_POST, postText })
+type SetUserProfileType = {
+	type: typeof SET_USER_PROFILE
+	profile: ProfileType
+}
+export const setUserProfile = (profile: ProfileType): SetUserProfileType => ({ type: SET_USER_PROFILE, profile })
+type SetStatusType = {
+	type: typeof SET_STATUS
+	status: string
+}
+export const setStatus = (status: string) => ({ type: SET_STATUS, status })
+type SavePhotoSuccessType = {
+	type: typeof SAVE_PHOTO_SUCCESS
+	photos: PhotosType
+}
+export const savePhotoSuccess = (photos: any): SavePhotoSuccessType => ({ type: SAVE_PHOTO_SUCCESS, photos })
 
-export const setStatusThunkCreator = (status) => async (dispatch) => {
+export const setStatusThunkCreator = (status: any) => async (dispatch: any) => {
 	try {
 		let response = await updateStatus(status)
 		if (response.data.resultCode === 0) dispatch(setStatus(status));
 	} catch (error) {
-		alert(error.response.status)		
+		alert(error.response.status)
 	}
 }
-export const getStatusThunkCreator = (userID) => async (dispatch) => {
+export const getStatusThunkCreator = (userID: number) => async (dispatch: any) => {
 	let response = await getStatus(userID)
 	if (response.status === 200) {
 		dispatch(setStatus(response.data));
 	}
 }
-export const getUserProfileThunkCreator = (userID) => async (dispatch) => {
+export const getUserProfileThunkCreator = (userID: number) => async (dispatch: any) => {
 	let response = await getProfile(userID)
 	dispatch(setUserProfile(response.data));
 }
-export const savePhotoThunkCreator = (photo) => async (dispatch) => {
+export const savePhotoThunkCreator = (photo: any) => async (dispatch: any) => {
 	let response = await savePhoto(photo);
 	if (response.data.resultCode === 0) {
 		dispatch(savePhotoSuccess(response.data.data.photos))
 	}
 }
-export const updateDataProfile = (data) => async (dispatch) => {
+export const updateDataProfile = (data: any) => async (dispatch: any) => {
 	let response = await setMeDataProfile(data);
 	if (response.data.resultCode === 0) {
 		dispatch(setUserProfile(data))
@@ -48,7 +64,33 @@ export const updateDataProfile = (data) => async (dispatch) => {
 	}
 }
 
-
+type PostType = {
+	id: number
+	textPost: string
+}
+type PhotosType = {
+	small: string | null
+	large: string | null
+}
+type ProfileType = {
+	aboutMe: string
+	contacts: ContactsType
+	fullName: string
+	lookingForAJob: boolean
+	lookingForAJobDescription: string
+	photos: PhotosType
+	userId: number
+}
+type ContactsType = {
+	facebook: string
+	github: string
+	instagram: string
+	mainLink: string
+	twitter: string
+	vk: string
+	website: string
+	youtube: string
+}
 let initialState = {
 	// profile: {
 	// 	aboutMe: null,
@@ -71,17 +113,17 @@ let initialState = {
 	// 		large: null,
 	// 	}
 	// },
-	profile: null,
+	profile: {} as ProfileType,
 	posts: [
 		{ id: 1, textPost: "Hi, how are you?" },
 		{ id: 2, textPost: "It's my first post" },
-	],
+	] as Array<PostType>,
 	newPostText: "it_kamasutra",
 	SettingsScore: 0,
 	status: "",
 }
 
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action: any) => {
 
 	switch (action.type) {
 		case ADD_POST:

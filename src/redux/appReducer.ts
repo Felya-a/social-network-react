@@ -1,11 +1,17 @@
-import { authMeThunkCreator } from './authReduser.js'
+import { authMeThunkCreator } from './authReducer'
 
 // Action Type
 const SET_INITIALIZED = "SET_INITIALIZED";
 
 // Action Creator
-export const setInitialized = () => ({ type: SET_INITIALIZED })
-export const initializeApp = () => (dispatch) => {
+type setInitializedActionType = {
+  type: typeof SET_INITIALIZED
+}
+
+export const setInitialized = (): setInitializedActionType => ({ type: SET_INITIALIZED })
+
+// Thunc Creator
+export const initializeApp = () => (dispatch: Function) => {
   let promise = dispatch(authMeThunkCreator());
   Promise.all([promise]) // в массиве может быть много промисов
     .then(() => {
@@ -13,11 +19,15 @@ export const initializeApp = () => (dispatch) => {
     })
 }
 
-let initialState = {
+type InitialStateType = {
+  initialized: boolean
+}
+
+let initialState: InitialStateType = {
   initialized: false,
 }
 
-const appReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case SET_INITIALIZED:
       return {

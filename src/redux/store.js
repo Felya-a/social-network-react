@@ -1,5 +1,5 @@
 import { dialogsReducer } from "./dialogsReducer.js";
-import { profileReducer } from "./profileReducer.js";
+import { profileReducer } from "./profileReducer.ts";
 // import { sidebarReducer } from "./sidebarReducer.js";
 
 

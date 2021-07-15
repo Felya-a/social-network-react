@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addPostActionCreator, onPostChengeActionCreator } from '../../../redux/profileReducer.js'
+import { addPostActionCreator, onPostChengeActionCreator } from '../../../redux/profileReducer'
 import MyPosts from './MyPosts';
 
 const mapStateToProps = (state) => {

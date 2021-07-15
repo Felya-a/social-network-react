@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Input } from '../common/FormsControls/FormsControls';
 import { required } from '../../utils/validators/validators';
-import { loginThunkCreator, logoutProfile } from '../../redux/authReduser';
+import { loginThunkCreator, logoutProfile } from '../../redux/authReducer';
 import { connect } from 'react-redux';
 import "../common/FormsControls/FormsControls.scss"
 import "./Login.scss"
@@ -82,7 +82,7 @@ let Login = (props) => {
         <h3 className='login__title'>LOGIN</h3>
         {props.isAuth ?
           <button onClick={logout} type='button' className='login__button_auth btn'>Logout</button> :
-          <LoginReduxForm onSubmit={onSubmit} urlCaptcha={props.urlCaptcha} />
+          <LoginReduxForm onSubmit={onSubmit} initialValues={{email:'free@samuraijs.com', password:'free'}} urlCaptcha={props.urlCaptcha} />
         }
       </div>
     </div>
